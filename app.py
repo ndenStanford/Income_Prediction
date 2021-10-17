@@ -68,11 +68,11 @@ class IncomeClass(Resource):
 
 		df = pd.DataFrame([input_list], columns = names)
 
-		enc = np.load('one_hot_encoder.npy', allow_pickle = True).item()
+		enc = np.load('model/one_hot_encoder.npy', allow_pickle = True).item()
 		array_dummies = enc.transform(df[categorical_cols]).toarray()
 		X = np.concatenate((df[numerical_cols].values, array_dummies), axis = 1)
 
-		clf = joblib.load('random_forest_clf')
+		clf = joblib.load('model/gradient_boosting_clf')
 
 		y = int(clf.predict(X)[0])
 		target_dict = {0:'<=50K', 1:'>50K'}
