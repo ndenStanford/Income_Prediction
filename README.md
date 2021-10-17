@@ -2,6 +2,11 @@
 
 In this assignment you will be evaluating UCI’s Census Income dataset. The classification task is to determine whether a person makes over 50K a year. Please examine the prediction using a minimum of 2 machine learning model endpoints and return a brief analysis of the best result. The feature space is as follows, and contains a mixture of numerical and categorical inputs. 
 
+## API Dashboard 
+Please see the swapper UI here
+
+https://income-prediction-involve-ai.herokuapp.com/
+
 ## Dataset 
 
 - age: continuous.
