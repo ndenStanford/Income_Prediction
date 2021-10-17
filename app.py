@@ -90,4 +90,4 @@ class IncomeClass(Resource):
 			growscore_space.abort(400, e.__doc__, status = "Could not retrieve information", statusCode = "400")
 
 if __name__=='__main__':
-   app.run(host='127.0.0.1', port=8080, debug=True)
+   app.run(host='0.0.0.0', port=8080, debug=True)
