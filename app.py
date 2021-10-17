@@ -27,7 +27,7 @@ class IncomeClass(Resource):
 	@app_x.doc(responses={ 200: 'OK', 400: 'Invalid Argument', 500: 'Mapping Key Error' }, 
 			 params={ 'age': 'continuous' 
 			 , 'workclass': 'State-gov, Self-emp-not-inc, Private, Federal-gov, Local-gov, Self-emp-inc'
-			 , 'education-num': 'continuous'
+			 , 'education': 'Preschool, 1st-4th, 5th-6th, 7th-8t, 9th, 10th, 11th, 12th, HS-grad, Some-college, Assoc-voc, Assoc-acdm, Bachelors, Masters, Prof-school, Doctorate'
 			 , 'marital-status': 'Never-married, Married-civ-spouse, Divorced, Married-spouse-absent, Separated, Married-AF-spouse, Widowed' 
 			 , 'occupation': 'Adm-clerical, Exec-managerial, Handlers-cleaners, Prof-specialty, Other-service, Sales, Transport-moving, Farming-fishing, Machine-op-inspct, Tech-support, Craft-repair, Protective-serv, Armed-Forces, Priv-house-serv'
 			 , 'relationship': 'Not-in-family, Husband, Wife, Own-child, Unmarried, Other-relative'
@@ -51,7 +51,7 @@ class IncomeClass(Resource):
 
 		age = float(request.args.get('age', default = '39'))
 		workclass = request.args.get('workclass', default = 'State-gov')
-		education_num = float(request.args.get('education-num', default = '13.0'))
+		education = request.args.get('education', default = 'Masters')
 		marital_status = request.args.get('marital-status', default = 'Never-married')
 		occupation = request.args.get('occupation', default = 'Adm-clerical')
 		relationship = request.args.get('relationship', default = 'Not-in-family')
@@ -61,6 +61,13 @@ class IncomeClass(Resource):
 		capital_loss = float(request.args.get('capital-loss', default = '0.0'))
 		hours_per_week = float(request.args.get('hours-per-week', default = '40.0'))
 		native_country = request.args.get('native-country', default = 'United-States')
+
+		education_dict = {'10th': 6, '11th': 7.0, '12th': 8.0, '1st-4th' : 2.0,
+		'5th-6th': 3, '7th-8th': 4, '9th': 5, 'Assoc-acdm': 12.0,
+		'Assoc-voc': 11, 'Bachelors': 13, 'Doctorate': 16,
+		'HS-grad': 9, 'Masters': 14, 'Preschool': 1,
+		'Prof-school': 15, 'Some-college' : 10}
+		education_num = education_dict[education]
 
 		input_list = [age, workclass, education_num, marital_status, 
 				occupation, relationship, race, sex, capital_gain, 
