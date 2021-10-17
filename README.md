@@ -7,6 +7,10 @@ Please see the swagger UI here
 
 https://income-prediction-involve-ai.herokuapp.com/
 
+Example API 
+
+https://income-prediction-involve-ai.herokuapp.com/income/?age=35&workclass=Self-emp-not-inc&education=Some-college&marital-status=Married-spouse-absent&occupation=Armed-Forces&relationship=Own-child&race=Amer-Indian-Eskimo&sex=Female&capital-gain=0&capital-loss=0&hours-per-week=40&native-country=Jamaica
+
 ## Dataset 
 
 - age: continuous.
